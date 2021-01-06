@@ -1,0 +1,77 @@
+body{
+    background-color: rgb(51, 148, 218);
+    font-family: Montserrat;
+}
+
+nav{
+    color: white;
+    float: right;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+nav a {
+    margin-top: 20px;
+    text-decoration: none;
+    color: white;
+    letter-spacing: 2px;
+    
+}
+
+nav a:hover{
+    transition: 0.5s;
+    color: gray;
+    transform: scale(1.1);
+}
+
+h1{
+    color: white;
+
+}
+
+#main{
+    padding: 20px;
+}
+
+span{
+    
+    border-radius: 50%;
+    margin-right: 10px;
+    margin-top: 30px;
+   }
+
+#main, #colonne{
+    color: white;
+}
+
+h2{
+    color: white;
+}
+
+.haut{
+    background : linear-gradient(180deg, rgb(243, 163, 255), rgb(51, 148, 218));
+    padding: 40px;
+}
+
+#social{
+    background-color: white;
+}
+
+#title{
+    color: black;
+    text-align: center;
+}
+
+#social1 a{
+    display: flex;
+    justify-content: center;
+    
+    text-decoration: none;
+    text-transform: uppercase;
+    color: black;
+    
+}
+
+#social1{
+    padding: 20px;
+}

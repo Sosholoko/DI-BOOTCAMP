@@ -1,0 +1,71 @@
+body{
+    font-family: Montserrat;
+    display: grid;
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    width: 100%;
+}
+
+.navbar{
+    border: solid white 3px;
+    background-color: white;
+    }
+
+.navbar h1{
+    margin-left: 20px;
+}
+
+#backg{
+    background-image: url(jobb.jpeg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 200px;
+
+
+}   
+
+#image h1{
+    text-align: center;
+    color: white;
+}
+
+form{
+   display: flex;
+   justify-content: center;
+   padding: 15px;
+   }
+
+   input[type=text]{
+       width: auto;
+       border-radius: 8px;
+       border: none;
+       padding: 10px;
+       transition: 0.5s;
+   }
+
+   form input:focus{
+    transform: scale(1.1);
+    outline-width: 0;
+ }
+
+#btn{
+    float: right;
+    border-radius: 5px;
+    border: solid 1px transparent;
+    color: white;
+    background-color: rgb(64, 134, 255);
+    padding: 5px;
+    margin-left: 10px;
+    
+}   
+
+#col p{
+    display: inline-block;
+    text-align: center;
+    margin-right: 40px;
+    margin-left: 190px;
+    padding: 10px;
+    font-weight: bold;
+}
+

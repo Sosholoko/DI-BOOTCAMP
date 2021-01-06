@@ -1,0 +1,107 @@
+h1{
+    display: flex;
+    justify-content: center;
+    color: white;
+}
+
+body{
+    background-color: steelblue;
+    font-family: 'Montserrat', sans-serif;
+}
+
+p{
+    color: white;
+    text-align: center;
+}
+
+form{
+    display: grid;
+    justify-content: center;
+    margin-right: auto;
+    margin-left: auto;
+    color: white;
+    text-align: center;
+}
+
+form input{
+    box-sizing: border-box;
+    border: 3px solid white;
+    border-radius: 20px;
+    vertical-align: baseline;
+    transition: 0.5s;
+    
+}
+
+form input:focus{
+    transform: scale(1.1);
+    outline-width: 0;
+ }
+
+#valid{
+    margin-left: 130px;
+    margin-right: 130px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.bak{
+    display: flex;
+    justify-content: left;
+}
+
+#back{
+    text-decoration: none;
+    box-sizing: border-box;
+    border: solid 1px white;
+    border-radius: 20px;
+    padding : 10px;
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    transition: 0.5s;
+}
+
+
+#back:hover{
+
+    transform: scale(1.1);
+
+}
+
+#footer{
+    font-size: 11px;
+}
+
+.downbar{
+    display: flex;
+    flex-flow: row;
+    margin-top: none;
+    justify-content: space-evenly;
+    padding: 0px 0px;
+    text-align: right;
+    text-decoration: none;
+
+}
+
+#cond{
+    text-decoration: none;
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    transition: 0.5s;
+}
+#use{
+    text-decoration: none;
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    transition: 0.5s;
+}
+#us{
+    text-decoration: none;
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    transition: 0.5s;
+}
+#term{
+    text-decoration: none;
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    transition: 0.5s;
+}

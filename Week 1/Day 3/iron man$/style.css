@@ -1,0 +1,97 @@
+body{
+    padding: 0;
+    margin: 0;
+    font-family: Montserrat;
+    background-image: url(im.jpg);
+    background-size: cover;
+}
+
+h1{
+   color: white;
+   float: left;
+   margin-top: 90px;
+   font-size: 90px; 
+   font-family: Montserrat;
+}
+
+#iron{
+    color:rgb(255, 0, 0);
+}
+
+#man{
+    color:black;
+}
+
+nav{
+    
+    padding: 5px;
+    border: solid 2px  red;
+    border-radius: 5px;
+    background-color: black;
+
+}
+
+nav a{
+    text-decoration: none;
+    float: right;
+    margin-top: 20px;
+    margin-left: 50px;
+    text-transform: uppercase;
+    font-weight: bold;
+    text-align: center;
+    color: white;
+    
+
+}
+
+nav a:hover{
+    transition: 0.5s;
+    transform: scale(1.1);
+    color: rgb(250, 202, 80);
+}
+
+#life{
+
+    float: left;
+    margin-right: 1000px;
+    font-size: 20px;
+    padding: 30px;
+    color: black;
+    font-family: 'Staatliches', cursive;
+    font-weight: bold;
+  
+}
+
+footer{
+    text-align: center;
+    margin-top: 190px;
+    background-color: rgba(254, 100, 100, 0.694);
+    border: solid 1px red;
+    
+}
+
+.downbar a{
+    text-decoration: none;
+    text-transform: uppercase;
+    color: white;
+    margin-right: 20px;
+    padding: 10px;
+    margin-top: 10px;
+}
+
+.downbar a:hover{
+    transition: 0.5s;
+    transform: scale(1.1);
+    color: rgb(250, 202, 80);
+}
+
+.fl_left{
+    color: white;
+}
+
+#site{
+    color: white;
+    text-decoration: none;
+    
+}
+
