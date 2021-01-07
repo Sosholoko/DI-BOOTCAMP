@@ -1,0 +1,155 @@
+body{
+    background-color: #ffff;
+}
+
+#jf{
+   
+    position: static;
+    color: black;
+    padding: 10px;
+    margin-bottom: 20px;
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 30px;
+    transform: all 0.5s;
+ 
+
+}
+
+#jf:hover{
+   
+    transform: scale(1.5);
+    
+    
+}
+
+.sidebar{
+    display: flex;
+    flex-flow: row;
+    margin-top: none;
+    justify-content: space-evenly;
+    padding: 0px 0px;
+    text-align: right;
+    text-decoration: none;
+
+}
+
+#menu{
+    text-decoration: none;
+    color: black;
+    font-family: 'Montserrat', sans-serif;
+    transition: 0.5s;
+   
+}
+
+#menu:hover{
+    transform: scale(1.1);
+}
+
+#login{
+    text-decoration: none;
+    color: black;
+    font-family: 'Montserrat', sans-serif;
+    transition: 0.5s;
+}
+
+#login:hover{
+    transform: scale(1.1);
+}
+
+#signin{
+    text-decoration: none;
+    color: black;
+    font-family: 'Montserrat', sans-serif;
+    transition: 0.5s;
+}
+
+#signin:hover{
+    transform: scale(1.1);
+}
+
+#home{
+    text-decoration: none;
+    color: black;
+    font-family: 'Montserrat', sans-serif;
+    transition: 0.5s;
+}
+
+#home:hover{
+    transform: scale(1.1);
+}
+
+.block1{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: auto;
+    
+}
+
+.models{
+    padding: 28px;
+}
+
+.models:hover{
+    cursor: pointer;
+
+}
+
+#wom1{
+    text-align: center;
+}
+#wom2{
+    text-align: center;
+}
+#man1{
+    text-align: center;
+}
+#man2{
+    text-align: center;
+}
+
+#cart{
+    border: solid black 2px;
+    border-radius: 10px;
+    transition: 0.5s;
+    padding: 5px;
+    animation: 0.5s;
+}
+
+span:hover{
+   animation: 0.5s;
+   transform: scale(1.1);
+   color: rgb(49, 131, 255);
+}
+
+#title{
+    font-family: Montserrat;
+    text-align: center;
+}
+
+#sale{
+    color: red;
+}
+
+#footer{
+    text-align: center;
+}
+
+.downbar a{
+    padding: 10px;
+    font-size: 15px;
+    margin-top: 30px;
+    text-decoration: none;
+    color: black;
+}
+
+#site{
+    text-decoration: none;
+    color: black;
+}
+
+.downbar{
+    margin-top: 40px;
+}
+
