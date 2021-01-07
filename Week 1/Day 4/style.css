@@ -1,0 +1,172 @@
+*,
+*::before,
+*::after{
+        margin: 0;
+        padding: 0;
+        box-sizing: inherit;
+}
+
+html{
+    font-family: Montserrat;
+    font-size: 10px;
+    box-sizing: border-box;
+}
+
+li{
+    padding: 10px;
+}
+
+header{
+    background-color: rgb(40, 40, 134);
+}
+.bordure{
+    background-color: #003b4d;
+    
+}
+
+.bordure1 h1, h2{
+    color: white;
+    text-align: center;
+    padding: 7px;  
+}
+
+.bordure1 img{
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    border: solid 3px, white;
+    border-radius: 50% ;
+    padding: 5px;
+}
+
+.bordure1 h1{
+    font-size: 30px;
+}
+
+.bloc1{
+    text-align: center;
+}
+
+.bloc1 h1{
+    text-align: center;
+    padding: 25px;
+
+}
+
+.bloc1 p{
+    font-size: 15px;
+    padding: 10px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.bloc1 button{
+    padding: 10px;
+    margin-top: 35px;
+    background-color:  #003b4d;
+    border-radius: 20px;
+    border: none;
+    color: white;
+    animation: 0.5s;
+    transition: 0.5s;
+}
+
+.bloc1 button:hover{
+ cursor: pointer;
+ transition: 0.5s;
+ transform: scale(1.1);
+ 
+}
+
+.bloc1 button:focus{
+    outline-width: 0;
+}
+
+.journey h1{
+    
+    text-align: center;
+    padding: 10px;
+    margin-top: 20px;
+    color: white;
+    border: solid 3px  #004b6193; 
+    background-color:  #004b6193;
+}
+
+.journey ol{
+    
+    text-align: center;
+    font-size: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    color: black;
+}
+
+#blc1{
+    display: inline-block;
+    border: solid black 3px;
+    padding: 20px;
+    margin-left: 470px;
+    margin-top: 30px
+}
+#blc2{
+    display: inline-block;
+    border: solid black 3px;
+    padding: 20px;
+    margin-left: 10px;
+    margin-right: auto;
+    margin-top: 30px
+}
+#blc3{
+    display: inline-block;
+    border: solid black 3px;
+    padding: 20px;
+    margin-left: 10px;
+    margin-right: auto;
+    margin-top: 30px;
+}
+
+.skills{
+    align-items: center;
+}
+
+#blc1 p, h1{
+    text-align:center;
+}
+#blc2 p, h1{
+    text-align:center;
+}
+#blc3 p, h1{
+    text-align:center;
+}
+
+.title{
+    font-size: 30px;
+    padding: 10px;
+    margin-top: 50px;
+    color: white;
+    border: solid 3px  #004b6193; 
+    background-color:  #004b6193;
+}
+
+#footer{
+    text-align: center;
+}
+
+.downbar a{
+    padding: 10px;
+    font-size: 10px;
+    margin-top: 30px;
+    text-decoration: none;
+    color: black;
+}
+
+#site{
+    text-decoration: none;
+    color: black;
+}
+
+.downbar{
+    margin-top: 40px;
+}
+
+
