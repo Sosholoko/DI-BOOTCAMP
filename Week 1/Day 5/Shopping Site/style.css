@@ -30,8 +30,9 @@ body{
 }
 
 #acc{
-    font-size: 15px;
+    font-size: 13px;
     color: black;
+    letter-spacing: none;
 }
 
 #acc:hover{
@@ -202,11 +203,11 @@ span:hover{
 #btnsign{
     border-radius: 10px;
     border: none;
-    color: white;
+    color: rgb(254, 214, 58);
     background-color: rgb(53, 53, 53);
-    padding: 10px;
+    padding: 15px;
     font-family: 'Bebas Neue', sans-serif;
-    letter-spacing: 3px;
+    letter-spacing: 5px;
     text-decoration: none;
     animation: 0.5s;
     transition: 0.5s;
