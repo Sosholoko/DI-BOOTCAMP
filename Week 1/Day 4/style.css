@@ -101,33 +101,37 @@ header{
     color: black;
 }
 
+
+
+.bloc3{
+    display: flex;
+    justify-content: space-around;
+}
+
+
+    
 #blc1{
     display: inline-block;
     border: solid black 3px;
     padding: 20px;
-    margin-left: 470px;
-    margin-top: 30px
+    
 }
 #blc2{
     display: inline-block;
     border: solid black 3px;
     padding: 20px;
-    margin-left: 10px;
-    margin-right: auto;
+    
     margin-top: 30px
 }
 #blc3{
     display: inline-block;
     border: solid black 3px;
     padding: 20px;
-    margin-left: 10px;
-    margin-right: auto;
+    
     margin-top: 30px;
 }
 
-.skills{
-    align-items: center;
-}
+
 
 #blc1 p, h1{
     text-align:center;
