@@ -1,0 +1,148 @@
+body{
+    background-color: white;
+    font-family: "Montserrat";
+}
+
+
+h1{
+    text-align: center;
+    padding-bottom: 20px;
+    font-family: "Montserrat";
+}
+
+.title{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    text-align: center;
+    margin-right: 80px;
+    color: purple;
+
+}
+
+.title span{
+    font-size: 10px;
+    text-align: center;
+    color: black;
+}
+
+
+
+
+/*.bloc2{
+    display: grid;
+    grid-template-rows: 1fr 2fr;
+    grid-template-columns: 1fr 2fr;
+    grid-row-gap: 10px;
+    grid-column-gap: 10px;
+    text-align: center;
+    padding: 20px;
+}
+
+#red{
+    background-color: red;
+    border: solid 2px black;
+    padding: 20px;
+}
+
+#red1{
+    background-color: red;
+    border: solid 2px black;
+    padding: 20px;
+    grid-column: 1/span 2;
+}
+
+#blue{
+    background-color: blue;
+    border: solid 2px black;
+    padding: 20px;
+}*/
+
+.bloc2{
+    display: flex;
+    justify-content: space-between;
+    height: 300px;
+    padding-top: 140px;
+    padding: 10px;
+ 
+
+}
+
+#one{
+    justify-content: flex-end;
+    margin-right: 30px;
+    margin-bottom: 10px;
+    color: gray
+    
+  
+}
+
+#two{
+    justify-content: flex-start;
+    margin-right: 30px;
+    color: gray;
+    
+
+}
+
+#three{
+    justify-content: flex-end;
+    color: gray;
+   
+    
+}
+
+.pp{
+    border-radius: 50%;
+    display: flex;
+    padding-top: 5px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.job{
+    text-align: center;
+    color: white;
+    padding-bottom: 10px;
+}
+
+.border{
+    background-color: rgb(255, 228, 72);
+    border-radius: 10px;
+}
+.border2{
+    background-color: rgb(255, 83, 83);
+    border-radius: 10px;
+}
+.border3{
+    background-color: rgb(55, 202, 255);
+    border-radius: 10px;
+}
+
+em{
+  font-size: 12px;
+}
+
+@media only screen and (max-width: 500px){
+   
+        .bloc2{
+            display: flex;
+            flex-wrap: wrap;
+            height: 300px;
+            padding-top: 140px;
+            padding: 10px;
+        }
+
+        .title{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+            text-align: center;
+            margin-right: 50px;
+            color: purple;
+        
+        }
+
+        
+ }
+    
