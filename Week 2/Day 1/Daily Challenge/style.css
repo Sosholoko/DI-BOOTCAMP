@@ -8,10 +8,11 @@
     flex-direction: column;
     align-items: flex-start;
     width: 200px;
+    border: solid 2px blue;
     
 }
 
-#sq{
+.sq{
     border: solid 3px black;
     padding: 60px;
     margin-bottom: 40px;
@@ -19,12 +20,13 @@
 
 .row-1{
     display: flex;
+    border: solid 2px blue;
     flex-direction: row;
     align-items: center;
     
 }
 
-#sq2{
+.sq2{
     border: solid 3px black;
     padding: 60px;
     margin-right: 20px;
@@ -35,6 +37,7 @@
     flex-direction: column;
     align-items: flex-end;
     width: 200px;
+    border: solid 2px blue;
     
 }
 
