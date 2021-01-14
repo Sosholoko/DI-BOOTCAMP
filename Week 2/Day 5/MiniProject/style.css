@@ -1,0 +1,32 @@
+body{
+    background-color: white;
+}
+
+.navbar-collapse{
+    display: flex !important;
+    justify-content: space-between !important;
+}
+
+.navbar-collapse form{
+    align-self: flex-end !important;
+}
+
+.col-md-4{
+    text-align: center;
+}
+
+.first{
+display: flex;
+justify-content: space-evenly;
+margin-top: 80px;
+}
+
+.first a{
+    text-decoration: none;
+    color: gray;
+}
+
+.jumbotron{
+    padding: 20px;
+
+}

@@ -1,0 +1,60 @@
+
+h1{
+    margin-top: 10px !important;
+}
+
+.col-lg-4 a{
+    color: black !important;
+    text-transform: uppercase !important;
+    text-decoration: none !important;
+    margin-top: 30px !important;
+    padding: 20px;
+}
+
+form{
+    float: right;
+    padding: 20px;
+    
+}
+
+.mail{
+    padding: 10px;
+    margin-right: 5px;
+}
+.passw{
+    padding: 10px;
+}
+
+.jumbotron-fluid{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.container-fluid-first{
+    padding: 40px;
+}
+
+.lead{
+  text-align: center;
+  padding: 10px;
+}
+
+.row-second{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin-left: 40px;
+
+}
+
+.col-lg-4{
+    justify-content: center;
+    text-align: center;
+    
+}
+.col-lg-4 p{
+    
+}
