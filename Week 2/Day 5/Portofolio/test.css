@@ -1,0 +1,127 @@
+
+body{
+    background-color: rgb(240, 240, 240);
+}
+
+h1{
+    margin-top: 10px !important;
+}
+
+.col-lg-4 a{
+    color: white !important;
+    opacity: 0.5;
+    text-transform: uppercase !important;
+    text-decoration: none !important;
+    margin-top: 30px !important;
+    padding: 20px;
+    transition: all .5s ease-in-out !important;
+}
+
+.sec a:hover{
+    transform: scale(3.1) !important;
+    opacity: 1 !important;
+    color: rgb(255, 255, 255) !important;
+}
+
+form{
+    float: right;
+    padding: 10px;
+    color: white;
+
+}
+
+::placeholder{
+    color: white;
+}
+
+
+.container-fluid{
+    background-image: url(gradient.jpg);
+    color: white;
+}
+
+input[type=email]{
+    border-radius: 10px;
+    margin-right: 10px;
+    background-color: transparent;
+    border: solid 1px white;
+    transition: .5s;
+}
+input[type=email]:focus{
+    transform: scale(1.1);
+    outline-width: 0;
+}
+input[type=password]{
+    border-radius: 10px;
+    margin-right: 10px;
+    background-color: transparent;
+    border: solid 1px white;
+    transition: .5s;
+}
+input[type=password]:focus{
+    transform: scale(1.1);
+    outline-width: 0;
+}
+
+.mail{
+    padding: 10px;
+    margin-right: 5px;
+   
+}
+.passw{
+    padding: 10px;
+}
+
+.jumbotron-fluid{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.container-fluid-first{
+    padding: 40px;
+    height: 700px;
+    background-image: url(gradient.jpg);
+    color: white;
+}
+
+.lead{
+  text-align: center;
+  padding: 10px;
+}
+
+.row-second{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin-left: 40px;
+
+}
+
+.col-lg-4{
+    justify-content: center;
+    text-align: center;
+    
+}
+
+.col-lg-4 img{
+    border-radius: 10px;
+    border: solid 2px gray;
+}
+
+.container-fluid-second h1{
+    text-align: center;
+}
+
+.social{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    
+}
+
+.container-fluid-third h1{
+    text-align: center;
+}
