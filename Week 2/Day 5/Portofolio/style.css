@@ -93,6 +93,7 @@ opacity: 1;
     width: 1200px;
     border-radius: 20px;
     background-color: rgba(84, 84, 84, 0.612) !important;
+    -webkit-backdrop-filter: blur(2rem);
   }
 
   .social{
