@@ -1,13 +1,15 @@
-var sentence = "Kids movies are not really that bad";
+var sentence = "This dinner is not that bad";
 
-wordBad = sentence.substr("bad");
-wordNot = sentence.substr("not");
+let array = sentence.split("");
 
-if(wordBad = true){
-    sentence.replace("bad", "good");
-    console.log(sentence);
+let wordBad = sentence.indexOf("bad");
+let wordNot = sentence.indexOf("not");
 
+//l'index de no doit etre plus faible que bad ca voudrai dire quil est avant comme demande
+if(wordNot < wordBad && wordNot != -1 && wordBad !=-1){
+  array.splice(not, bad, "good");
+  sentence = array.join("");
+
+  console.log(sentence);
 }
-else{
-    console.log(sentence);
-}
+
