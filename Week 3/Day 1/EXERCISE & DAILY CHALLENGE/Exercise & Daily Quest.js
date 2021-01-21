@@ -5,13 +5,13 @@
 //10 % 5 = 0;
 //"Java" + "Script"= "Javascript";
 //   " "+" " = " ";
- //   " " + 0 = "0";
- //   true + true = 2;
- //   true + false = 1;
- //   false + true = 1;
- //   false - true = 0;
- //   3 - 4 = -1;
- //   "Bob" + "bill" = BobBill;
+//   " " + 0 = "0";
+//   true + true = 2;
+//   true + false = 1;
+//   false + true = 1;
+//   false - true = 0;
+//   3 - 4 = -1;
+//   "Bob" + "bill" = BobBill;
 
 //Exercise 2
 
