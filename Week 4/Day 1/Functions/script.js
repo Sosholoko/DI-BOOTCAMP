@@ -86,6 +86,9 @@
 
 //Concatanation with dollar sign
 
+
+
+
 function checkDriverAge(age){
     if(age < 18){
         console.log("You're too young to drive");
