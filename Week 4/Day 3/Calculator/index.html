@@ -2,8 +2,10 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title></title>
-    <link rel="stylesheet" href="css/style.css">
+    <title>Calculator</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400&display=swap" rel="stylesheet">
+
     <style>
       button {
         width:70px;
@@ -12,8 +14,10 @@
     </style>
   </head>
   <body>
-    <div class="display" id="display">0</div>
-    <button type="button" name="button" id="1" onclick="my_f(1);">1</button>
+    
+    <div class="display" id="displaye">0</div><br>
+    <div class="calculator">
+    <button class="h" type="button" name="button" id="1" onclick="my_f(1);">1</button>
     <button type="button" name="button" id="2" onclick="my_f(2);">2</button>
     <button type="button" name="button" id="3" onclick="my_f(3);">3</button>
     <br>
@@ -24,15 +28,20 @@
     <button type="button" name="button" id="7" onclick="my_f(7);">7</button>
     <button type="button" name="button" id="8" onclick="my_f(8);">8</button>
     <button type="button" name="button" id="9" onclick="my_f(9);">9</button>
-    <button type="button" name="button" id="10" onclick="my_f(0);">0</button>
-    <br>
     <button type="button" name="button" id="add" onclick="my_f('+');">+</button>
+    <br>
+    <button type="button" name="button" id="10" onclick="my_f(0);">0</button>
     <button type="button" name="button" id="minus" onclick="my_f('-');">-</button>
     <button type="button" name="button" id="multiply" onclick="my_f('*');">*</button>
     <button type="button" name="button" id="divide" onclick="my_f('/');">/</button>
-    <button type="button" name="button" id="equal" onclick="result('=');">=</button>
-    <button type="button" name="button" id="ac" onclick="reset();">AC</button>
     <button type="button" name="button" id="delete" onclick="delet();"><</button>
-    <script src="script.js" charset="utf-8"></script>
-  </body>
+    
+    <button type="button" name="button" id="ac" onclick="reset();">AC</button>
+    <button type="button" name="button" id="equal" onclick="result('=');">=</button>
+</div>
+
+
+  <script src="script.js" charset="utf-8"></script>
+
+</body>
 </html>

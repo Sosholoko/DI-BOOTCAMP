@@ -1,4 +1,4 @@
-let calcDisplay = document.getElementById('display');
+let calcDisplay = document.getElementById('displaye');
 
 console.log(calcDisplay);
 
