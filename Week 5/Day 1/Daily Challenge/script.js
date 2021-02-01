@@ -21,7 +21,7 @@ planet5.setAttribute("id","green");
 var planet6 = document.getElementsByTagName("div")[5];
 planet6.setAttribute("id","purple");
 var planet7 = document.getElementsByTagName("div")[6];
-planet7.setAttribute("id","gray");
+planet7.setAttribute("id","orange");
 var planet8 = document.getElementsByTagName("div")[7];
 planet8.setAttribute("id","white");
 
