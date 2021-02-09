@@ -39,7 +39,7 @@ body{
 
 button{
     background: rgba(88, 183, 255, 0.269);
-    border-radius: 10px;
+    border-radius: 50%;
     font-family: "Montserrat";
     color: white;
     border: solid 1px white;

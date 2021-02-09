@@ -72,7 +72,8 @@
 
 
 // let btn = document.getElementsByTagName("button")[0];
-// let table = document.createElement("table");
+//  let table = document.createElement("table");
+//     table.appendChild(document.createTextNode(form1.value + form2.value));
 //     document.body.appendChild(table);
 
 // function formInject(){

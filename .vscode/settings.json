@@ -1,0 +1,7 @@
+{
+    "git.ignoreLimitWarning": true,
+    "python.linting.pylintEnabled": false,
+    "python.linting.pydocstyleEnabled": false,
+    "python.linting.flake8Enabled": false,
+    "python.pythonPath": "/Library/Frameworks/Python.framework/Versions/3.9/bin/python3"
+}
