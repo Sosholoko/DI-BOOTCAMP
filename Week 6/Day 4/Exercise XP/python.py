@@ -109,30 +109,24 @@
 
 #Exercise 14
 
-# user = []
-# active = True
+user = []
+active = True
 
 
-# while active == True:
-#     print("Confirm with yes or Deny with no")
-#     answer = input("Do you want to add a name ? yes or no\n")
-#     if answer == "yes":
-#         name = input("What's your name ?")
-#         user.append(name)
-#     elif answer =="no":
-#         remove = input("Do you want to remove a name ?\n")
-#         if remove == "yes":
-#             remove_name = input("Which name to remove ?\n")
-#             user.remove(remove_name)
-#         elif remove == "no":
-#             print(user)
-#             break
-#             active == False
-#         else:
-#             active == False
-
-#     active == False
-#     break
+while active:
+    print("Confirm with yes or Deny with no")
+    answer = input("Do you want to add a name ? yes or no\n")
+    if answer == "yes":
+        name = input("What's your name ?")
+        user.append(name)
+    elif answer =="no":
+        remove = input("Do you want to remove a name ?\n")
+        if remove == "yes":
+            remove_name = input("Which name to remove ?\n")
+            user.remove(remove_name)
+        elif remove == "no":
+            print(user)
+            active == False
 
 
 
