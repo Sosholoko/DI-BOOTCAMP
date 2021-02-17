@@ -1,4 +1,4 @@
-my_list = [2,3,1,2,"four",42,1,5,3,"imanumber"]
+#my_list = [2,3,1,2,"four",42,1,5,3,"imanumber"]
 
 
 
@@ -68,34 +68,67 @@ my_list = [2,3,1,2,"four",42,1,5,3,"imanumber"]
 
 # digit_sum(3)
 
-from random import randrange
+#from random import randrange
 
 
 
 
-def roll_dice():
-    count = 0
-    dice = randrange(1, 7)
-    dice2 = randrange(1, 7)
-    #return dice, dice2
-    while dice != dice2:
-        count = count + 1
-        print(count)
-    print("Success")
+# def roll_dice():
+#     count = 0
+#     dice = randrange(1, 7)
+#     dice2 = randrange(1, 7)
+#     return dice, dice2
 
 
-def throw_until_double():
-    count = 0
-    dice, dice2 = roll_dice()
-    if dice == dice2:
-        print("Success")
-        return True
-    else:
-        print("No")
-        count = count + 1
-        throw_until_double()
-        return False
+# def throw_until_double():
+#     count = 0
+#     dice, dice2 = roll_dice()
+#     if dice == dice2:
+#         print("Success")
+#         return True
+#     else:
+#         print("No")
+#         count = count + 1
+#         throw_until_double()
+#         return False
 
 
-#throw_until_double()
-roll_dice()
+# throw_until_double()
+
+
+
+# def get_full_name(fname, lname, *mname ):
+#     name = (fname,lname) + mname
+#     print(name)
+
+
+# get_full_name("Sasha", "Kharoubi")
+
+
+morse_code = {'A': '.-',     'B': '-...',   'C': '-.-.', 
+        'D': '-..',    'E': '.',      'F': '..-.',
+        'G': '--.',    'H': '....',   'I': '..',
+        'J': '.---',   'K': '-.-',    'L': '.-..',
+        'M': '--',     'N': '-.',     'O': '---',
+        'P': '.--.',   'Q': '--.-',   'R': '.-.',
+        'S': '...',    'T': '-',      'U': '..-',
+        'V': '...-',   'W': '.--',    'X': '-..-',
+        'Y': '-.--',   'Z': '--..',
+
+        '0': '-----',  '1': '.----',  '2': '..---',
+        '3': '...--',  '4': '....-',  '5': '.....',
+        '6': '-....',  '7': '--...',  '8': '---..',
+        '9': '----.' 
+        }
+
+code_reverse = {value:key for key,value in morse_code.items()}
+
+def to_morse(word):
+    print(' '.join(morse_code.get(i.upper()) for i in word))
+
+def from_morse(word):
+    print(''.join(code_reverse.get(i) for i in word.split()))
+
+
+to_morse("189")
+#from_morse(".... . .-.. .-.. ---")
