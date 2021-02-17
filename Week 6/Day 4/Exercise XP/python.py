@@ -126,7 +126,7 @@ while active:
             user.remove(remove_name)
         elif remove == "no":
             print(user)
-            active == False
+            active = False
 
 
 

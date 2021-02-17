@@ -14,7 +14,7 @@ else:
 
 
 print(f"The encrypted word is {final_word}")
-decrypt = input("do you want to decrypt ?\n")
+decrypt = input(f"do you want to decrypt {final_word} ?\n")
 
 if decrypt == "yes":
     print(f"The original word was {word}")
