@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    {% for article in articles %}
+    <div>
+        <p> {{article['title'] | upper }} </p>
+        <p> {{article['description'] | truncate(299, True)}} </p>
+        <p>{{ article["content"] }}</p>
+        <small> {{article['author']}}</small>
+    </div> 
+    {% endfor %}
+
+{%endblock%} 

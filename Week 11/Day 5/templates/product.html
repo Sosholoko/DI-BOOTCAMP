@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+    
+{% block content %}
+
+
+<style>
+    body{
+        text-align: center;
+    }
+    h1{
+        padding: 20px;
+
+    }
+</style>
+<h1>Availables Products</h1>
+
+
+{% for p in data %}
+    <div>
+        <p>{{p['Name']}}-------ID:{{p['ProductId']}} N° {{iddn}}</p>
+    
+    </div>
+{%endfor%}
+
+{%endblock%} 

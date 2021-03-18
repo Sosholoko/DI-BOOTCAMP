@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+    
+{% block content %}
+    <h1>Now it's {{date.hour}}:{{date.minute}}</h1>
+    {% if date.hour >= 18 %}
+        <h2>It's late good night</h2>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Feather-weather-moon.svg/1200px-Feather-weather-moon.svg.png" width="50" height="60">
+    {% else %}
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXoBu4xTxlJjS2i8z71kKnhf-lyhEm2m1BMw&usqp=CAU" width="50" height="60">
+    {% endif %}
+
+{%endblock%} 
