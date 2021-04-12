@@ -1,0 +1,105 @@
+{% extends "base.html" %}
+    
+{% block content %}
+
+<style>
+    .page{
+        width: 700px;
+        height: 1000px;
+        background-color: white;
+        margin-left: 25%;
+        margin-right: 50%;
+        color: black;
+        border: black 2px solid;
+    }
+
+    .info{
+        position:absolute;
+    }
+
+    .finfo{
+        position: relative;
+        border: solid 2px black;
+        top: 20px;
+        left: 18px;
+        float: left;
+        
+    }
+    .linfo{
+        position: relative;
+        left: 470px;
+        bottom: 100px;
+        text-align: center;
+
+        
+    }
+
+    .sinfo{
+        position: relative;
+        left: 18px;
+    }
+    
+    .prof{
+        position: relative;
+        left: 300px;
+        bottom: 180px;
+        
+    }
+
+    .jinfo{
+        position: relative;
+        left: 300px;
+        top: 50px;
+
+    }
+    .skinfo{
+        position: relative;
+        left: 300px;
+        top: 180px;
+    }
+    
+
+</style>
+
+
+<br><br>
+<div class="page">
+    <div class="info">
+        <div class="finfo">
+            <h2>First Name : {{fn}}</h2>
+            <h2>Last Name : {{ln}}</h2>
+            <p>Age : {{ag}}</p>
+            <p>Phone : {{ph}}</p>
+            <p>Email : {{em}}</>
+        </div>
+        <div class="linfo">
+            <p>Living City : {{ct}}</p>
+            <p>Actual Work : {{aw}}</p>
+        </div>
+        <div class="sinfo">
+            <p>Facebook : {{s1}}</p>
+            <p>Linkedin : {{s2}}</p>
+        </div>  
+        
+        <p class="prof">Profil<br> {{pr}}</p>
+
+        <div class="jinfo">
+            <p>Job Experience : {{d}}</p>
+            <p>Job Experience : {{d1}}</p>
+            <p>Job Experience : {{d2}}</p>
+        </div>
+        <div class="skinfo">
+            <p>Skill : {{sk}}</p>
+            <p>Skill : {{sk1}}</p>
+            <p>Skill : {{sk2}}</p>
+        
+        </div>
+        
+        
+        
+
+    </div>
+</div>
+
+
+{%endblock%} 

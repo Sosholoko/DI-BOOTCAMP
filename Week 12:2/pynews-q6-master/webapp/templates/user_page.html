@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+    
+{% block content %}
+
+<style>
+    body{
+        color: rgb(0, 0, 0);
+        
+    }
+    .container-1{
+        background-color: rgb(213, 213, 213);
+        height: 800px;
+        width: 1110px;
+
+    }
+    .container-1 h1, h2, p{
+        margin-left: 50px;
+    }
+</style>
+<div class="container-1">
+<br><br><h1>Welcome Back {{user.name}} !</h1><br><br>
+<h2>You're using the ID N°{{user.id}}</h2><br>
+<p>Your password is {{user.password}}</p>
+</div>
+
+{%endblock%} 

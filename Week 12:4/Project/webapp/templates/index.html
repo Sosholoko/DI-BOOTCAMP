@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div> <!-- Display every user -->
+        <h3>All the users:</h3>
+        {% for user in users %}
+            <p> {{ user.name }} </p>
+        {% endfor %}
+    </div>
+
+    <hr>
+
+    <div>
+        <h3>Users living in Roscoeview</h3>
+        {% for user in users %}
+            {% if user.city == "Roscoeview" %}
+                <p> {{ user.name }} </p>
+            {% endif %}
+        {% endfor %}
+    </div>
+
+    <hr>
+    <div>
+        <h3>The five first users:</h3>
+        {% for user in users[:5] %}
+            <p> {{ user.name }}</p>
+        {% endfor %}
+    </div>
+
+    <hr>
+    <div>
+        <h3>Users which zipcode start with number 5</h3>
+        {% for user in users %}
+            {% if user.zipcode[0] == "5" %}
+                <p> {{ user.name }} ({{ user.zipcode }}) </p>
+            {% endif %}
+        {% endfor %}
+    </div>
+</body>
+</html>

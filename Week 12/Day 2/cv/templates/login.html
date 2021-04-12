@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+    
+{% block content %}
+
+
+<style>
+    
+    
+    form{
+        border-radius: 10px;
+        text-align: center;
+        margin-top: 70px;
+        width: 280px;
+        height: 160px;
+        margin-left: 40%;
+        margin-right: 50%;
+        background-color: rgb(162, 162, 162);
+        color: black;
+    }
+</style>
+
+<h2>First Step you need to Sign in !</h2>
+<h3>No worry, it's completly FREE !</h3>
+
+
+<form action="" method="POST">
+    {{ form.hidden_tag() }}
+
+    <p>
+        {{ form.user.label }}
+        {{ form.user() }}
+    </p>
+    <p>
+        {{ form.email.label }}
+        {{ form.email() }}
+    </p>
+    <p>
+        {{ form.passw.label }}
+        {{ form.passw() }}
+    </p>
+    <p>
+        {{ form.connect() }}
+    </p>
+
+
+</form>
+
+
+{%endblock%} 

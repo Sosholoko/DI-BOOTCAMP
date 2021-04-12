@@ -2,10 +2,11 @@
     
 {% block content %}
 
-
+<br><br><br>
 <h1>Products N° {{idn}}</h1><br>
 
 
+<h2>{{name}}</h2><br><br>
 <h2>Supplier : {{brand}}</h2><br>
 <h2>Type : {{catego}}</h2><br>
 
@@ -15,9 +16,9 @@
 
 <p>Status : {{status}}</p>
 <p>Quantity Avilable : {{quantity}}</p>
-<p>Price : {{price}}</p><br><br>
+<p>Price : {{price}}$</p><br><br>
 
-<button>Add to the Shopping List</button>
+<a href="{{url_for('add', id= idn) }}">Add to the Shopping Cart</a><br><br><br>
 
 
 

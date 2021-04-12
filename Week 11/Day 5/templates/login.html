@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+    
+{% block content %}
+
+<style>
+    
+    
+    form{
+        border-radius: 10px;
+        text-align: center;
+        margin-top: 90px;
+        width: 280px;
+        height: 280px;
+        margin-left: 37%;
+        margin-right: 50%;
+        background-color: rgb(162, 162, 162);
+        color: black;
+    }
+</style>
+
+
+<form action="" method="POST">
+    {{ form.hidden_tag() }}
+
+    <p>
+        {{ form.user.label }}
+        {{ form.user() }}
+    </p>
+    <p>
+        {{ form.passw.label }}
+        {{ form.passw() }}
+    </p>
+    <p>
+        {{ form.connect() }}
+    </p>
+
+
+</form>
+
+{%endblock%} 

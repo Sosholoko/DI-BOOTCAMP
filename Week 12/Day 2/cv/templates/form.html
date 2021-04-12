@@ -1,0 +1,109 @@
+{% extends "base.html" %}
+    
+{% block content %}
+
+
+<style>
+    form{
+        width: 300px;
+        height: 1000px;
+        align-items: center;
+        margin-left: 38%;
+        
+    }
+
+    form p{
+        float: right;
+    }
+
+    .sub{
+        text-align: center;
+        float: right;
+        margin-left: 80px;
+    }
+
+</style>
+
+<form action="" method="POST">
+    {{ formo.hidden_tag() }}
+
+    <p>
+        {{ formo.firstname.label }}
+        {{ formo.firstname() }}
+    </p>
+    <p>
+        {{ formo.lastname.label }}
+        {{ formo.lastname() }}
+    </p>
+    <p>
+        {{ formo.age.label }}
+        {{ formo.age() }}
+    </p>
+    <p>
+        {{ formo.phone.label }}
+        {{ formo.phone() }}
+    </p>
+    <p>
+        {{ formo.email.label }}
+        {{ formo.email() }}
+    </p>
+    <p>
+        {{ formo.city.label }}
+        {{ formo.city() }}
+    </p>
+    <p>
+        {{ formo.actwork.label }}
+        {{ formo.actwork() }}
+    </p>
+    <p>
+        {{ formo.social1.label }}
+        {{ formo.social1() }}
+    </p>
+    <p>
+        {{ formo.social2.label }}
+        {{ formo.social2() }}
+    </p>
+    <p>
+        {{ formo.prof.label }}
+        {{ formo.prof() }}
+    </p>
+    <p>
+        {{ formo.date.label }}
+        {{ formo.date() }}
+    </p>
+    <p>
+        {{ formo.date1.label }}
+        {{ formo.date1() }}
+    </p>
+    <p>
+        {{ formo.date2.label }}
+        {{ formo.date2() }}
+    </p>
+    <p>
+        {{ formo.date3.label }}
+        {{ formo.date3() }}
+    </p>
+    <p>
+        {{ formo.skill.label }}
+        {{ formo.skill() }}
+    </p>
+    <p>
+        {{ formo.skill1.label }}
+        {{ formo.skill1() }}
+    </p>
+    <p>
+        {{ formo.skill2.label }}
+        {{ formo.skill2() }}
+    </p><br><br>
+    <p class="sub">
+        {{ formo.submit() }}
+    </p>
+
+
+</form>
+
+
+
+
+{%endblock%} 
+

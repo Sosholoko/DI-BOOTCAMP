@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<style>
+    form{
+        border: black 2px solid;
+        width: 250px;
+        height: 250px;
+        background-color: rgb(65, 63, 63);
+        color: white;
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 100px;
+        border-radius: 10px;
+        padding: 15px;
+    }
+    form a{
+        font-size: 11px;
+    }
+    input{
+        border-radius: 8px;
+        border: none;
+    }
+    #submit{
+        background-color: rgb(0, 165, 121);
+        border-radius: 5px;
+        border: none;
+        color: white;
+        padding: 3px 5px;
+        margin-top: 10px;
+    }
+    
+</style>
+
+
+    <form action="" method="POST">
+        {{ form.hidden_tag() }}
+        <p>
+            {{ form.username.label }}
+            {{ form.username() }}
+        </p>
+        <p>
+            {{ form.password.label }}
+            {{ form.password() }}
+        </p>
+        {{ form.submit() }}<br>
+        <a href="{{url_for('signup')}}">Register Now</a>
+    </form>
+
+{% endblock %}

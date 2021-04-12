@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<style>
+    form{
+        border: black 2px solid;
+        width: 250px;
+        height: 450px;
+        background-color: rgb(65, 63, 63);
+        color: white;
+        color: white;
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 100px;
+        border-radius: 10px;
+        padding: 10px;
+    }
+    input{
+        border-radius: 8px;
+        border: none;
+    }
+    #submit{
+        background-color: rgb(0, 165, 121);
+        border-radius: 10px;
+        border: none;
+        color: white;
+        padding: 5px;
+        margin-top: 15px;
+    }
+    span{
+        color: rgb(0, 165, 121);
+    }
+    
+</style>
+
+    <form action="" method="POST">
+        {{ form.hidden_tag() }}
+        
+        <p class="title">
+            Join Us Now For <span>FREE !</span>
+        </p><br>
+        <p>
+            {{ form.email.label }}
+            {{ form.email() }}
+        </p>
+        <p>
+            {{ form.username.label }}
+            {{ form.username() }}
+        </p>
+        <p>
+            {{ form.password.label }}
+            {{ form.password() }}
+        </p>
+        <p>
+            {{ form.confirm.label }}
+            {{ form.confirm() }}
+        </p>
+        {{ form.submit() }}
+    </form>
+{% endblock %}

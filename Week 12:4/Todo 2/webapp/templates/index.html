@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap" rel="stylesheet">
+    <title>Todo List</title>
+
+<style>
+body{
+    font-family: 'Montserrat';
+    color: white;
+    background-color: rgb(157, 24, 44);
+}
+
+.list{
+    
+    text-align: center;
+    background-color: rgb(157, 24, 44);
+}
+#title{
+    letter-spacing: 5px;
+    font-family: 'Montserrat';
+    
+}
+#okay{
+    text-decoration: none;
+    color: white;
+    font-size: 15px;
+    animation: 1s;
+    transition: 1s;
+}
+
+#del{
+    text-decoration: none;
+    color: white;
+    font-size: 15px;
+    font-style: italic;
+}
+.round{
+    border-radius: 50%;
+    border: none;
+    background-color: rgb(254, 91, 91);
+    margin-left: 10px;
+}
+.round-2{
+    border-radius: 50%;
+    border: none;
+    background-color: rgb(254, 91, 91);
+    margin-left: 10px;
+}
+#text{
+    border-radius: 10px;
+    border: none;
+    height: 20px;
+    width: 200px;
+    outline-width: 0;
+    animation: 1s;
+    transition: 1s;
+}
+#text:focus{
+    transform: scale(1.1);
+    outline-width: 0;
+}
+#add{
+    
+    border: none;
+    height: 60px;
+    font-size: 30px;
+    background-color:rgb(157, 24, 44); 
+    color: white;
+    animation: 1s;
+    transition: 1s;
+
+}
+#add:hover{
+    transform: scale(1.8);
+}
+ul{
+    text-align:center;
+    align-items: center;
+}
+li{
+    margin-left: 500px;
+    margin-right: 545px;
+    margin-top: 30px;
+    text-align: center;
+    background-color: #ff5e57;
+    border-radius: 8px;
+    color: rgb(255, 255, 255);
+    height: 30px;
+}
+</style>
+
+</head>
+<body>
+    <div class="list">
+    <h1 id="title">Todo List</h1><br><br>
+    <div>Add new item :
+        <br><br> <form action="/add" method = "POST">
+            <input id = "text" type="text" name="todoitem">
+            <input id = "add" type="submit" value="+">
+        </form>
+    </div>
+    <div>
+        <form action="{{ url_for('update', id=todos.id) }}" method="POST">
+            <br><br><h2>To Do Items ↓</h2>
+            <ul>
+            
+                {% for todo in todos %}
+                <li>{{ todo.text }}<button class="round"><a id="okay" href="{{ url_for('update', id=todo.id)}}">✓</a></button></li><br>
+                {% endfor %}
+            
+            </ul> 
+            
+        </form><br><br>
+        <h2>Completed Items ↓</h2>
+        <ul>
+            {% for todo in todoc %}
+            <li>{{ todo.text }}  <button class = "round-2"><a id="del" href="{{ url_for('delete', id=todo.id)}}">     ✗</a></button>     </li><br>
+            {% endfor %}
+        </ul>
+    </div>
+    </div>
+</body>
+</html>

@@ -12,12 +12,14 @@
 
     }
 </style>
-<h1>Availables Products</h1>
+<h1>Availables Products</h1><br><br>
 
 
 {% for p in data %}
     <div>
-        <p>{{p['Name']}}-------ID:{{p['ProductId']}} N° {{iddn}}</p>
+        <!-- <img src="static/img/{{ image }}" width ="50", height="50"> -->
+        <h3>{{p['Name']}}---ID : {{p['ProductId']}}</h3>
+        <a href="{{ url_for ('prodid', idn = p['ProductId']) }}">See more</a><br><br><br><br>
     
     </div>
 {%endfor%}
