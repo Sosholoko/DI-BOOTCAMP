@@ -4,22 +4,32 @@
 
 <style>
     form{
-        border: black 2px solid;
+        position: relative;
+        bottom: 650px;
+        border: var(--border-color) 2px solid;
         width: 250px;
-        height: 450px;
-        background-color: rgb(65, 63, 63);
+        height: 500px;
+        font-family: "Montserrat";
+        background-color: var(--form-color);
         color: white;
         color: white;
         text-align: center;
         margin-left: auto;
-        margin-right: auto;
-        margin-top: 100px;
+        margin-right: 80px;
+        margin-bottom: 250px;
         border-radius: 10px;
         padding: 10px;
+    }
+    footer{
+        font-family: 'Montserrat';
     }
     input{
         border-radius: 8px;
         border: none;
+    }
+    .title{
+    
+        font-family: "Montserrat";
     }
     #submit{
         background-color: rgb(0, 165, 121);
@@ -32,15 +42,67 @@
     span{
         color: rgb(0, 165, 121);
     }
+    .square2{
+        position: static;
+        margin-top: 80px;
+        margin-bottom: auto;
+        border: 2px solid var(--border-color);
+        border-radius: 10px;
+        background-color: var(--signin-color);
+        height: 600px;
+    }
+    #accr2{
+        color: white;
+        font-family: 'Montserrat';
+        text-align: center;
+        padding-top: 10px;
+        
+    }
+    #accr3{
+        color: white;
+        font-family: 'Montserrat';
+        text-align: center;
+        padding-top: 40px;
+        
+    }
+    #sg2{
+        color: white;
+        font-family: 'Montserrat';
+        text-align: center;
+        padding-top: 40px;
+        
+    }
+    #link{
+        text-align: center;
+        color: white;
+        font-size: 15px;
+        font-family: "Montserrat";
+        /* padding-left: 40px; */
+        
+    }
+    #link a {
+        text-decoration: none;
+    }
+    .titleblock{
+        
+        width: 500px;
+        height: 600px;
+        margin-top: 100px;
+    }
     
 </style>
-
+<div class="square2">
+    <div class="titleblock">
+        <h1 id="accr2">Welcome to <span>Ho✓er®</span></h1><br><h2 id="accr3">Messaging never have been this easy !</h2> 
+        <h1 id="sg2">Sign <span>UP</span> → </h1>
+        <h4 id="link" >Already have an account ? <a href="{{url_for('signin')}}">Sign in here →</a></h3>
+    </div>
     <form action="" method="POST">
         {{ form.hidden_tag() }}
         
-        <p class="title">
+        <h4 class="title">
             Join Us Now For <span>FREE !</span>
-        </p><br>
+        </h4><br>
         <p>
             {{ form.email.label }}
             {{ form.email() }}
@@ -59,4 +121,6 @@
         </p>
         {{ form.submit() }}
     </form>
+</div>
+    
 {% endblock %}

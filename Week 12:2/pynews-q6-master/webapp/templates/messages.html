@@ -1,0 +1,252 @@
+{% extends "base.html" %}
+
+{% block content %}
+<head>
+    
+</head>
+<style>
+    body{
+        color: white;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        height: 700px !important;
+        padding: 0 !important;
+        font-family: 'Montserrat';
+    }
+    h1{
+        font-family: 'Montserrat';
+    }
+    .msg-area{
+        color: black;
+        border-radius: 10px;
+        background-color: var(--msg-color);
+        border: 2px solid var(--border-color);
+        position: relative;
+        left: 200px;
+        height: 550px;
+        width: 850px;
+        padding: 20px;
+        bottom: 550px;
+        overflow-x: hidden;
+        overflow-y: auto;
+        box-shadow: 0 0 9px rgb(84, 39, 157) ;
+    
+    }
+    .not-area{
+        position: relative;
+        text-align: center;
+        width: 180px;
+        height: 550px;
+        top: 0px;
+        border-radius: 10px;
+        background: var(--not-color);
+        color: white;
+        padding: 10px;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif !important;
+
+    }
+    .not-area strong{
+        border: 1px solid white;
+        padding: 15px;
+        border-radius: 10px;
+    }
+    .main{
+        position: static;
+        margin-top: 30px;
+        align-content: center;
+        border-radius: 10px;
+        width: 1100px;
+        height: 590px;
+        padding: 20px;
+        margin-right: 200px !important;
+        background: var(--bg-color);
+        box-shadow: 0 0 8px rgb(7, 32, 140) ;
+        
+    }
+    .form{
+        position: relative;
+        left: 210px;
+        bottom: 600px;
+    }
+    .message{
+        width: 828px;
+        border-radius: 10px;
+        border: none;
+
+    }
+
+    .message:focus{
+        outline-width: 0;
+    }
+    hr{
+        border: .5px rgb(106, 106, 106) solid;
+    }
+    #btn{
+        position: relative;
+        text-align: center;
+        left: 39.5px;
+        bottom: 588px;
+        border-radius: 10px !important;
+        height: 34px !important;
+        font-size: 15px !important;
+        background-color: rgb(49, 164, 101) !important;
+        color: white !important;
+    }
+    #btnout{
+        position: relative;
+        left: 45px;
+        bottom: 680px;
+        border-radius: 5px !important;
+        height: 40px !important;
+        width: 90px;
+        font-size: 10px !important;
+        text-align: center  !important;
+    }
+    #btnso{
+        position: relative;
+        top: 220px;
+    }
+    #btnso a{
+        text-decoration: none;
+        color: white;
+    }
+    #myMessage{
+        position: relative;
+        left: 108px;
+        bottom: 587px;
+        padding: 5px;
+    }
+
+    #myMessage:focus{
+        outline-width: none;
+    }
+
+    .not-area p{
+        font-size: 15px;
+        color: green;
+    }
+    #room{
+        color: rgb(143, 28, 20);
+    }
+    #conn{
+        color: white;
+    }
+    #msg strong{
+        font-style: italic;
+        color: var(--font-color-2);
+    }
+    #msg p{
+        color: rgb(9, 35, 182);
+    }
+    #msg span{
+        color: rgb(106, 106, 106);
+    }
+    #str{
+        color:var(--font-color)!important;
+    }
+    #msg span #date-time{
+        color: black;
+    }
+    
+</style>
+
+<h1> > Start Chatting </h1><br>
+<div class="main">
+    
+    <div class="not-area">
+        
+        
+        <strong>Welcome {{current_user.name}}</strong><br><br>
+        <!-- <p> > {{current_user.name}} connected succesfully</p> -->
+        {% for user in all_users %}
+            <p>{{user.name}} is connected</p>
+        {%endfor%}
+        <p id="conn">You're connected to the Room :<br> <span id="room">Chat-channel</span></p>
+        <button type="button" class="btn btn-danger" id="btnso"><a href="{{url_for('signout')}}">Sign Out</a></button>
+
+        
+    </div>
+    <div class="msg-area" id="msgarea">
+        <p id="msg">
+            <strong><span id="str">You started a new chat ! Your messages will appears right below ↓</span></strong>
+            <br><br><span id="v"></span><span id='date-time'></span>
+        </p>
+    </div>    
+
+
+<!-- <form class="form" id="form"> -->
+
+    <!-- <button type="button" class="btn btn-danger" id="btnso">Sign Out</button>  -->
+    <button type="button" class="btn btn-primary" id="btnout">Change Room</button>
+    <input type="text" class="message" id="myMessage" placeholder="Type here your messages...">
+    <button type="button" class="btn btn-outline-success" id="btn">Send ➣</button>
+
+<!-- </form> -->
+</div>
+
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"></script>  -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+<script src="https://js.pusher.com/7.0/pusher.min.js"></script>
+
+<script>
+
+var messageBody = document.querySelector('#msgarea');
+messageBody.scrollTop = messageBody.scrollHeight;
+
+
+
+var input = document.getElementById("myMessage");
+input.addEventListener("keyup", function(event) {
+    if (event.keyCode === 13) {
+        event.preventDefault();
+        document.getElementById("btn").click();
+    }
+});
+
+
+$(function() {
+
+    let username = `{{current_user.name}}`;
+
+    
+    $("#btn").on('click', function(){
+
+        // $("#msg").append(message_template);
+        let message = $('#myMessage').val();
+
+        $.post('/message', {'username': username, 'message': message}, function() {
+            $('#myMessage').val('');
+        });
+    });
+
+    Pusher.logToConsole = true;
+
+    var pusher = new Pusher('9282a2def65164d7d0bb', {
+        cluster: 'ap2'
+    });
+
+    var channel = pusher.subscribe('chat-channel');
+        channel.bind('new-message', function(data) {
+            let name = data.username;
+
+            let message = data.message;
+
+            let timestamp = data.time_stamp;
+
+            let message_template = `<p>
+                    <strong>> ${message}</strong>
+                    <br>${name}<span> ✓</span><span id="date-time">${timestamp}</span>
+                    
+                </p><hr>`;
+                
+            $("#msg").append(message_template);
+            var messageBody = document.querySelector('#msgarea');
+            messageBody.scrollTop = messageBody.scrollHeight;
+    });
+
+
+});
+
+</script>
+
+{% endblock %}

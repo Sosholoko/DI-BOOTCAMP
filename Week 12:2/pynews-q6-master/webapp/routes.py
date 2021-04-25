@@ -1,48 +1,64 @@
 import flask
-
+from flask import request, jsonify
+from flask_socketio import SocketIO, emit, send
 from . import app       # . is webapp/
-from . import forms, news_functions, models, db
+from . import forms, models, db
 import flask_login
+import pusher
+import json
+from time import localtime, strftime
+
+socketio = SocketIO(app, cors_allowed_origins="*")
+
+pusher_client = pusher.Pusher(
+    app_id='1190483',
+    key='9282a2def65164d7d0bb',
+    secret='5f43b399aac7287fd054',
+    cluster='ap2',
+    ssl=True
+)
+
+
 
 @app.route("/")
 def home():
-    return flask.render_template("base.html")
+    return flask.render_template("home.html")
 
-## Create a route:
-# Form with one single field "query"
-# Use the form data to display some articles about the query
+@socketio.on('message')
+def handleMessage(data):
+    
+    send(data)
+    
 
-# 1) Create the form        v
-# 2) Create the route
-# 3) Create the template that displays the form
-# 4) Create the template that displays the articles
+@app.route("/messages")
+def messages():
 
-@app.route("/article/query/<query>")
-def query_article(query):
-    articles = news_functions.get_news(query)
-    return flask.render_template("articles.html", articles=articles)
+    all_users = models.User.query.filter_by(boolean=True)
+    return flask.render_template("messages.html", all_users = all_users )
 
-@app.route("/search-article", methods=["GET", "POST"])
-def search_article():
-    form = forms.QueryForm()
+@app.route('/message', methods=['POST'])
+def message():
 
-    # case 1: Post request --> The user is sending data
-    if flask.request.method == "POST":
-        if form.validate_on_submit(): # Check all the validators
-            url = flask.url_for("query_article", query=form.query.data)
-            # url --> /article/query/rick
-            return flask.redirect(url)
+    try:
+
+        username = request.form.get('username')
+        message = request.form.get('message')
+        print(username)
+
+        # new_message = Message(username=username1, message=message1)
+        # db.session.add(new_message)
+        # db.session.commit()
+
+        pusher_client.trigger('chat-channel', 'new-message', {'username' : username, 'message': message, 'time_stamp': strftime('%b-%d %I:%M%p', localtime())})
+
+        return jsonify({'result' : 'success'})
+    
+    except:
+
+        return jsonify({'result' : 'failure'})
 
 
-    # case 2: Get request --> the user just wants to see the page
-    return flask.render_template("search_article.html", form=form)
 
-# Sign up page
-
-# Create a page that displays a sign up form (username & password) and when it gets data from a user
-# just print "Rick is signing up with password chocolate"
-
-# The password needs to contain 6 to 12 characters
 @app.route("/sign-up", methods=["GET","POST"])
 def signup():
     form = forms.SignUpForm()
@@ -51,6 +67,7 @@ def signup():
         if form.validate_on_submit():
             username = form.username.data
             password = form.password.data
+
             new_user = models.User(name = username, password = password )
             db.session.add(new_user)
             db.session.commit()
@@ -80,20 +97,25 @@ def profile_page(user_id):
 
 @app.route("/sign-in", methods=["GET", "POST"])
 def signin():
+    
     form = forms.SignInForm()
     if flask.request.method == "POST":
         if form.validate_on_submit():
             username = form.username.data
             password = form.password.data
-
+    
             # Retrieve the user that matches this username
             user = models.User.query.filter_by(name=username).first()
+            print(user.boolean)
 
             # Check the provided password against the user's one
             if user is not None and user.password == password:
                 flask_login.login_user(user)
                 flask.flash(f"{user.name} logged in successfully !", "success")
                 idn = user.id
+                user.boolean = True
+                db.session.commit()
+                print(user.boolean)
                 return flask.render_template('user_page.html', user=user)
             else:
                 flask.flash("Something went wrong.", "danger") # Put the message into the flashed messages
@@ -101,7 +123,7 @@ def signin():
 
     return flask.render_template("signin.html", form=form)
 
-@app.route("/sign-out")
+@app.route("/sign-out", methods=["GET"])
 def signout():
     flask_login.logout_user()
     return flask.redirect('/sign-in')
@@ -116,37 +138,6 @@ def signout():
 
 
 
-
-
-
-
-
-
-
-
-# @app.route("/signin", methods=["GET", "POST"])
-# def sign_in():
-#     form = forms.SignInForm()
-
-#     if flask.request.method == "POST":
-#         if form.validate_on_submit():
-#             username = form.username.data
-#             password = form.password.data
-
-#             user = models.User.query.filter_by(name = username)
-
-#             if user is not None and user.password == password:
-#                 flask_login.login_user(user)
-#                 flask.flash("{user.name} logged in succesfully", "success")
-#             else:
-#                 flask.flash("Something went wrong", "danger")
-    
-#     return flask.render_template("signin.html", form = form)
-
-    
-# @app.route("/signout")
-# def signout():
-#     flask_login.logout_user(user)
 
 
 

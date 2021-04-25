@@ -2,16 +2,49 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>PyNews</title>
+    <title>Hover®</title>
 
     {% block custom_style %}{% endblock %}
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"></script> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/master.css') }}" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet"> 
 <style>
+    
+    :root {
+    --primary-color: rgb(7, 25, 108);
+    --font-color: rgb(7, 25, 108) ;
+    --font-color-2: rgb(0, 0, 0) ;
+    --bg-color: linear-gradient(#30336b, #585ca0);
+    --msg-color: rgb(205, 205, 205);
+    --footer-color: linear-gradient( rgb(7, 25, 108), rgb(43, 43, 215)) ;
+    --not-color : linear-gradient(#30336b, #585ca0);
+    --signin-color: rgb(0, 64, 133);
+    --form-color: #30336b;
+    --border-color:rgb(0, 64, 133);
+    }
+
+    [data-theme="dark"] {
+    --primary-color: #000000;
+    --font-color: #ffffff;
+    --font-color-2: rgb(255, 255, 255) ;
+    --bg-color: rgb(0, 0, 96);
+    --msg-color: #000000;
+    --footer-color: #000000;
+    --not-color: #000000;
+    --signin-color: rgb(40, 40, 40);
+    --form-color: #000000;
+    --border-color: #ffffff;
+    }
+
+
+    
+    
     body{
-        background-color: rgb(7, 25, 108);
+        background-color: var(--primary-color);
 
     }
     .active{
@@ -23,13 +56,96 @@
     #red{
         color: rgb(252, 87, 87) !important;
     }
+    .bg-primary{
+        background-color:var(--primary-color) !important;
+        /* position: fixed;
+        left: 0;
+        top: 0;
+        width: 100%; */
+    }
+    footer{
+        text-align: center;
+        background: var(--footer-color);
+        color: white;
+        height: 50px;
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+    }
+    footer h6{
+        margin-top: 10px;
+    }
+.theme-switch-wrapper {
+display: flex;
+align-items: center;
+justify-content: right;
+    }
+em {
+    margin-left: 1260px;
+    margin-bottom: 10px;
+    font-size: 1rem;
+    color: white;
+
+}
+
+.theme-switch {
+  display: inline-block;
+  height: 34px;
+  left: 1250px;
+  position: relative;
+  width: 60px;
+}
+
+.theme-switch input {
+  display:none;
+}
+
+.slider {
+  background-color: #ccc;
+  bottom: 0;
+  cursor: pointer;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transition: .4s;
+}
+
+.slider:before {
+background-color: #fff;
+bottom: 4px;
+content: "";
+height: 26px;
+left: 4px;
+position: absolute;
+transition: .4s;
+width: 26px;
+}
+
+input:checked + .slider {
+background-color: #66bb6a;
+}
+
+input:checked + .slider:before {
+transform: translateX(26px);
+}
+
+.slider.round {
+border-radius: 34px;
+}
+
+.slider.round:before {
+border-radius: 50%;
+}
+
     
 </style>
 
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-light bg-dark">
-    <a class="navbar-brand" href="{{ url_for('home') }}">PyNews</a>
+<nav class="navbar navbar-expand-lg navbar-light bg-primary">
+    <a class="navbar-brand" href="{{ url_for('home') }}">Ho✓er ➣</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -38,7 +154,7 @@
 
             {% if current_user.is_authenticated %}
             <a class="nav-item nav-link active" href="{{url_for('profile_page', user_id = current_user.id)}}">Hello {{ current_user.name }} <span class="sr-only">(current)</span></a>
-            <a class="nav-item nav-link active" href="{{ url_for('search_article') }}">Search Article <span class="sr-only">(current)</span></a>
+            <a class="nav-item nav-link active" href="{{ url_for('messages') }}">Messages <span class="sr-only">(current)</span></a>
             <a class="nav-item nav-link active" id="red" href="{{ url_for('signout') }}">Sign Out <span class="sr-only">(current)</span></a>
 
             {% else %}
@@ -48,6 +164,14 @@
         </div>
     </div>
 </nav>
+<div class="theme-switch-wrapper">
+    <label class="theme-switch" for="checkbox">
+        <input type="checkbox" id="checkbox" />
+        <div class="slider round"></div>
+    </label>
+    <em>Dark Mode</em>
+</div>
+
 
 <div class="container">
 
@@ -58,12 +182,39 @@
             </div>
         {% endfor %}
     </div><br>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <!-- Page-specific block -->
     {% block content %}
     {% endblock %}
 </div> 
 
 <!-- End of container -->
-
+<div class="push"></div>
+</div>
+<footer class="footer">
+    <h6>Copyright © 2021 by Hover® Inc. All Rights Reserved. </h6>
+</footer>
 </body>
+<script>
+
+const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]');
+
+function switchTheme(e) {
+    if (e.target.checked) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        localStorage.setItem('theme', 'dark');
+    }
+    else {
+        document.documentElement.setAttribute('data-theme', 'light');
+        localStorage.setItem('theme', 'light');
+    }    
+}
+
+toggleSwitch.addEventListener('change', switchTheme, false);
+
+
+</script>
+
 </html>

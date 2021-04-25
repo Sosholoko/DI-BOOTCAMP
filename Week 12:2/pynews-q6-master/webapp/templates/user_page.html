@@ -4,23 +4,52 @@
 
 <style>
     body{
-        color: rgb(0, 0, 0);
+        color: rgb(255, 255, 255);
+        font-family: 'Montserrat';
         
     }
     .container-1{
-        background-color: rgb(213, 213, 213);
-        height: 800px;
-        width: 1110px;
+        background-color: #30336b;
+        height: 200px;
+        width: 1100px;
+        font-family: 'Montserrat';
+        border-radius: 10px;
+        padding-left: 20px;
 
     }
     .container-1 h1, h2, p{
-        margin-left: 50px;
+        margin-left: 600px;
+        text-align: center;
+    }
+    .container-1 p{
+        font-size: 15px;
+        text-align: center;
+    }
+    .pp{
+        border-radius: 50%;
+        background-color: gray;
+        width: 150px;
+        height: 150px;
+        border: solid 2px gray;
+        float: left;
+        margin-right: 65px;
+    }
+    .container-2{
+        width: 1100px;
+        height: 430px;
+        border-radius: 10px;
+        padding: 20px;
+        background-color: #30336b;
     }
 </style>
 <div class="container-1">
-<br><br><h1>Welcome Back {{user.name}} !</h1><br><br>
+<br><div class="pp"><img src="/static/ppempty.png" height="150px" width="150px"></div>    
+<h1>Welcome Back {{user.name}} !</h1><br>
 <h2>You're using the ID N°{{user.id}}</h2><br>
 <p>Your password is {{user.password}}</p>
+</div><br>
+<div class="container-2">
+
 </div>
 
 {%endblock%} 

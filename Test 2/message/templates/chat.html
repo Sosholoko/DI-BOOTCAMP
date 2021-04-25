@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <nav>
+
+    </nav>
+
+    <div id="main-section">
+        <nav id="sidebar">
+
+        </nav>
+        <div id="rightside-pannel">
+            <div id="display-message-section">
+
+            </div>
+            <div id="input-area">
+                <input type="text" id="user-message" placeholder="Type here" autocomplete="off">
+                <button type="button" id="send_message">SEND</button>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/socket.io/1.3.6/socket.io.min.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', ()=>{
+        var socket = io.connect("http://" + document.domain + ':' + location.port);
+
+        socket.on('connect', ()=>{
+            socket.send('Connected Sucessfully');
+        });
+
+        socket.on('message', data=>{
+            
+            const p = document.createElement('p');
+            const br = document.createElement('br');
+            p.innerHTML= data;
+            document.querySelector('.msg-area').append(p);
+            
+        });
+
+        socket.on('anything', data=>{
+            console.log(data);
+        });
+
+        document.addEventListener('#btn').onclick = ()=>{
+            socket.send(document.querySelector('#myMessage').value);
+        }
+    });
+
+    </script>
+</body>
+</html>

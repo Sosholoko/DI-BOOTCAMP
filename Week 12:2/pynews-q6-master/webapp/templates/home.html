@@ -1,0 +1,83 @@
+{% extends "base.html" %}
+
+{% block content %}
+<style>
+    body{
+        color: white;
+        font-family: 'Montserrat';
+    }
+    h1{
+        text-align: center;
+    }
+    .main h1, h2, h3{
+        text-align: center;
+        justify-content: center;
+        padding: 10px;
+    }
+    #r{
+        font-size: 15px;
+    }
+    .btns{
+        justify-content: center;
+        flex-direction: row;
+        border-radius: 5px;
+        padding: 10px;
+        border: none;
+        background-color: blue;
+        color: white;
+        text-decoration: none;
+    }
+    #btnsi{
+        margin-right: 10px;
+    }
+    #btnsu{
+        margin-left: 10px;
+    }
+    .main{
+        display: flex;
+        flex-direction: column;
+        height: 300px;
+    }
+    .buttons{
+        margin-left: 480px;
+        margin-right:auto ;
+        padding-bottom: 200px;
+    }
+    .buttons a{
+        text-decoration: none;
+    }
+    .buttons a:hover{
+        color: white;
+        background-color: rgb(0, 165, 121);
+    }
+    #title{
+        color: rgb(0, 165, 121);
+        padding-left: 13px;
+    }
+    img{
+        position: relative;
+        left: 597px;
+        bottom: 405px;
+        color: white;
+        filter: invert(100%);
+    }
+</style>
+
+<br><br><h1>Welcome to   <span id="title">  Ho✓er</span><span id="r">®</span></h1><br><br>
+<div class="main">
+    <h2> <span id="title">></span> Simple Real Time Chatting_</h2><br><br><br>
+    <h3> <span id="title">></span> Join the community for FREE_</h3><br>
+    <img src="/static/buble.png" height="200px" width="260px">
+</div>
+<div class="buttons">
+        <a href="{{ url_for('signin') }}" class="btns" id="btnsi">Sign In</a>
+        <a href="{{ url_for('signup') }}" class="btns" id="btnsu">Sign Up</a>
+</div>    
+    
+
+
+
+
+
+{% endblock %}
+

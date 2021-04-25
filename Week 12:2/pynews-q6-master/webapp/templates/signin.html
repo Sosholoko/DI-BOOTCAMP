@@ -4,17 +4,20 @@
 
 <style>
     form{
-        border: black 2px solid;
+        border: var(--border-color) 2px solid;
         width: 250px;
-        height: 250px;
-        background-color: rgb(65, 63, 63);
+        height: 270px;
+        background-color: var(--form-color);
         color: white;
         text-align: center;
         margin-left: auto;
         margin-right: auto;
-        margin-top: 100px;
+        margin-top: 50px;
         border-radius: 10px;
         padding: 15px;
+    }
+    footer{
+        font-family: 'Montserrat';
     }
     form a{
         font-size: 11px;
@@ -29,12 +32,50 @@
         border: none;
         color: white;
         padding: 3px 5px;
-        margin-top: 10px;
+        margin-top: 0px;
+    }
+    .square{
+        position: static;
+        margin-top: 80px;
+        background-color: var(--signin-color);
+        height: 550px;
+        border-radius: 10px;
+    }
+
+    #accr{
+        color: white;
+        font-family: 'Montserrat';
+        text-align: center;
+        padding-top: 10px;
+    }
+    #accr2{
+        color: white;
+        font-family: 'Montserrat';
+        text-align: center;
+    }
+    #sg{
+        color: white;
+        font-family: 'Montserrat';
+        text-align: center;
+    }
+    span{
+        color: rgb(0, 165, 121);
+    }
+    #fpwd{
+        position: relative;
+        bottom: 10px;
+        font-size: 10px;
+        margin-bottom: 0px;
+    }
+    #fpwd a{
+        text-decoration: none;
     }
     
 </style>
 
-
+<div class="square">
+    <h1 id="accr">Welcome Back to <span>Ho✓er®</span></h1><br><h2 id="accr2">Messaging never have been this easy ! Right ?</h2> 
+    <h1 id="sg">Sign <span>in</span> → </h1>
     <form action="" method="POST">
         {{ form.hidden_tag() }}
         <p>
@@ -44,9 +85,13 @@
         <p>
             {{ form.password.label }}
             {{ form.password() }}
+            <p id="fpwd" >I forgot my password <a href="">click here</a></p>
         </p>
+        
         {{ form.submit() }}<br>
         <a href="{{url_for('signup')}}">Register Now</a>
     </form>
+</div>
+    
 
 {% endblock %}

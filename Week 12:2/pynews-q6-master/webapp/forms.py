@@ -19,16 +19,16 @@ class SignUpForm(flask_wtf.FlaskForm):
     
     email = wtforms.StringField("Email", validators=[vld.Length(8, 30)])
     username = wtforms.StringField("Username ")
-    password = wtforms.PasswordField("Password ", validators=[vld.Length(6, 12)])
+    password = wtforms.PasswordField("Password (Between 6 < 12 characters)", validators=[vld.Length(6, 12)])
     confirm = wtforms.PasswordField("Repeat Password")
     
 
-    submit = wtforms.SubmitField("Sign up ->")
+    submit = wtforms.SubmitField("Sign up →")
 
 
 class SignInForm(flask_wtf.FlaskForm):
     username = wtforms.StringField("Username ")
     password = wtforms.PasswordField("Password ", validators=[vld.Length(6, 12)])
 
-    submit = wtforms.SubmitField("Connect ->")
+    submit = wtforms.SubmitField("Connect →")
 

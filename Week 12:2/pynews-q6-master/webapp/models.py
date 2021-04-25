@@ -15,37 +15,19 @@ class User(db.Model, flask_login.UserMixin): # db.Model is required if you want 
 
     name = db.Column(db.String(64))
     password = db.Column(db.String(64))
+    boolean = db.Column(db.Boolean, default=False)
 
-    fav_quote = db.relationship('Quote', backref="user", uselist = False)
 
 
-class Quote(db.Model):
-
+class Message(db.Model):
     id = db.Column(db.Integer(), primary_key=True)
+    username = db.Column(db.String(50))
+    message = db.Column(db.String(500))
 
-    sentense = db.Column(db.String(256), nullable = False)
-    author = db.Column(db.String(64), nullable = True)
-    date = db.Column(db.DateTime(), nullable = True)
-
-    user_id = db.Column(db.Integer(), db.ForeignKey("user.id"))
-
-class Book(db.Model):
-
+class NewMessage(db.Model):
     id = db.Column(db.Integer(), primary_key=True)
-    
-    title = db.Column(db.String(64))
-    description = db.Column(db.String(256))
-    language = db.Column(db.String(32))
-
-    author_id = db.Column(db.Integer(), db.ForeignKey('human.id'))
-    #author = db.relationship('Human', backref="author", uselist = False)
-
-class Human(db.Model):
-    
-    id = db.Column(db.Integer(), primary_key=True)
-    name = db.Column(db.String(64))
-
-    written_by = db.relationship('Book', backref="author")
+    username = db.Column(db.String(50))
+    message = db.Column(db.String(500))
 
 
 
