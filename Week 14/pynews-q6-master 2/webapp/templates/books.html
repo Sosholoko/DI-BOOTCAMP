@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <ul>
+        {% for book in books %}
+            <li>
+            {{ book.title }}
+
+            {% if current_user.is_authenticated %}
+                {% if book not in current_user.fav_books %}
+                <a href="{{ url_for('fav_book', book_id=book.id) }}">(Add to favourite)</a>
+                {% endif %}
+            {% endif %}
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}
+

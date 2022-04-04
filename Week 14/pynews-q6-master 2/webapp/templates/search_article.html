@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    <form method="POST" action="" novalidate>
+        {{ form.hidden_tag() }}
+
+        <p>Errors: {{ form.errors }}</p>
+        <p>
+            {{ form.query.label }}
+            {{ form.query() }}
+            <small style="color:red">
+                {{ form.query.errors }}
+            </small>
+        </p>
+
+        {{ form.submit() }}
+
+    </form>
+
+{% endblock %}

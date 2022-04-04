@@ -1,4 +1,3 @@
-
 import os
 
 basedir = os.path.abspath(os.path.dirname(__file__))
@@ -23,9 +22,15 @@ class Config:
     MAIL_PASSWORD = "zafsaaeklnwuzofu"
     MAIL_DEFAULT_SENDER = "mikefisher0408@gmail.com"
 
+class PostgresConfig(Config):
+
+    SQLALCHEMY_DATABASE_URI = "postgres://postgres:postgres@localhost:5432/pynews"
+
+
 
 configs = {
     "basic": Config,
+    "postgres": PostgresConfig,
 }
 
 current_config = configs["basic"] # Replace with input ?

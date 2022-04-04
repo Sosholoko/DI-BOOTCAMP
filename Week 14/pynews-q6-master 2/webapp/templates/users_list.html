@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    <ol>
+        {% for user in users %}
+            <li>
+                <a href="{{ url_for('auth.profile_page', user_id=user.id) }}">{{ user.name }}</a>
+            </li>
+        {% endfor %}
+
+    </ol>
+
+{% endblock %}

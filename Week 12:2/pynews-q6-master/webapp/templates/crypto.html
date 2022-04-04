@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div>
+{% for datas in data %}
+
+    <span>{{ data['mineable'] }}</span>
+
+{% endfor %}
+{{data}}
+</div>
+{% endblock %}

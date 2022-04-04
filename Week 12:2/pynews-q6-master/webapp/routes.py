@@ -2,11 +2,15 @@ import flask
 from flask import request, jsonify
 from flask_socketio import SocketIO, emit, send
 from . import app       # . is webapp/
-from . import forms, models, db
+from . import forms, models, db, mail_functions
 import flask_login
 import pusher
 import json
 from time import localtime, strftime
+from requests import Request, Session
+from requests.exceptions import ConnectionError, Timeout, TooManyRedirects
+
+
 
 socketio = SocketIO(app, cors_allowed_origins="*")
 
@@ -18,7 +22,17 @@ pusher_client = pusher.Pusher(
     ssl=True
 )
 
+@app.route("/test")
+def test():
+    flask.flash("Testing mail sending !")
 
+    mail_functions.send_mail(title="Hello world",
+                             body="This is a test !",
+                             recipients="sashakharoubi@gmail.com",
+                             html=flask.render_template('mail.html', body="Hello World !")
+                            )
+
+    return flask.redirect('/')
 
 @app.route("/")
 def home():
@@ -67,10 +81,21 @@ def signup():
         if form.validate_on_submit():
             username = form.username.data
             password = form.password.data
+            mail     = form.mail.data
 
-            new_user = models.User(name = username, password = password )
+            new_user = models.User(name = username, password = password, mail=mail)
             db.session.add(new_user)
             db.session.commit()
+            mail_functions.send_mail(title="Welcome" +" "+ new_user.name ,
+                            body="This is a test !",
+                            recipients=new_user.mail,
+                            html=flask.render_template('mail.html', body="Welcome to Hover Messaging, your new account"
+                                                                        "is set up! You're good to go. You can now"
+                                                                        "sign in into your account and start messaging ! "
+                                                                        "Enjoy !")
+                            )
+            return flask.redirect('/sign-in')
+
         else:
             flask.flash("You haven't fill up the forms properly ! Please try again", "danger")
 
@@ -125,8 +150,20 @@ def signin():
 
 @app.route("/sign-out", methods=["GET"])
 def signout():
-    flask_login.logout_user()
-    return flask.redirect('/sign-in')
+    
+    all_users = models.User.query.all()
+    
+    for user in all_users:
+        if user.boolean == True:
+            user.boolean = False
+            print(user.boolean)
+            db.session.commit() 
+            print('OK')
+            flask_login.logout_user()
+            flask.flash("You successfully logout !", "danger")
+            return flask.redirect('/sign-in')
+        else:
+            pass
 
 
 

@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <ul>
+        {% for quote in quotes %}
+            {% if not quote.user %}
+                <li> {{ quote.sentence }} ({{ quote.author }})</li>
+            {% endif %}
+        {% endfor %}
+    </ul>
+{% endblock %}
+
